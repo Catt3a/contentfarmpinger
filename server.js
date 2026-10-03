@@ -8,14 +8,14 @@ app.use(express.static('public'));
 app.use(express.json());
 app.set('trust proxy', 1);
 
-app.get('/api/ping', async (req, res) => {
-    return res.json({ success: true, message: "A" });
+app.get('/v1/health', async (req, res) => {
+    return res.send('pong')
 });
 
 async function pinger() {
     while (true) {
-        await delay(600000);
-        await fetch("https://contentfarm-of5v.onrender.com/api/ping");
+        await delay(35000);
+        await fetch("https://eval.work.gd/v1/health");
     }
 }
 
