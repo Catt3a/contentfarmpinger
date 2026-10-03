@@ -9,7 +9,7 @@ app.use(express.json());
 app.set('trust proxy', 1);
 
 app.get('/v1/health', async (req, res) => {
-    return res.send('pong')
+    return res.json({ success: true, message: "ok" })
 });
 
 async function pinger() {
